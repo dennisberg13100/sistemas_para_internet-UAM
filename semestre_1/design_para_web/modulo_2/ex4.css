@@ -1,0 +1,9 @@
+@charset utf-8;
+@import url("main.css");
+
+p {
+color: white;
+text-decoration: underline;
+text-transform: uppercase;
+background-color: blue;
+}

@@ -1,0 +1,18 @@
+table {
+    background-color: beige;
+}
+
+table th {
+    text-transform: uppercase; 
+    color: red; 
+    text-decoration: underline;
+}
+
+table tr {
+    border-color: blue;
+}
+
+table tr td {
+    color: blue;
+    text-align: center:
+}

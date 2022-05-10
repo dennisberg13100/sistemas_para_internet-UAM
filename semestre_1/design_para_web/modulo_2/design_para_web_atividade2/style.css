@@ -1,0 +1,320 @@
+
+/*
+ * A formatação das tags gerais (body e h{1..6}) procuro manter no topo
+ * para facilitar a formatação
+ */
+ 
+body {
+    background: #bc834d;
+    color: #252223;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+/*
+ * Por algum motivo algumas sectios estavam ultrapassando a largura da tela 
+ */
+
+section {
+    max-width: 100%;
+}
+
+/* Menu de Hamburger seguindo tutorial on-line:
+ * https://alvarotrigo.com/blog/hamburger-menu-css/
+ */
+#hamitems {
+    position: absolute;
+    width: 200px;
+    margin-left: -100px; /* Trapaça para mover um bloco para a esquerda */
+    /* box-shadow: deslocamento horizontal, vetical, desfoque e cor */
+    box-shadow: -3px 3px 5px #252223; }
+
+#hamitems a {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding:10px;
+    background-color: #D5D3D4;
+    color: #252223;
+    border-bottom: 1px solid #252223;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#hamnav label {
+    display: inline-block;
+    color: #252223;
+    padding: 10px;
+    font-style: normal;
+    font-size: 48px;
+}
+
+/* Esconder o check-box */
+#hamburger {
+    display: none;
+}
+
+/* Esconder o menu */
+#hamitems {
+    display: none;
+}
+
+/* Lógica para dar Toggle no menu Hamburger */
+
+#hamnav input:checked ~ #hamitems { display: block;}
+
+/* Fim do menu Hambureger */
+
+#inicio {
+    background-image: url(imagens/iniciob-bg3.jpg);
+    background-size: cover;
+    color: #D5D3D4;
+    text-shadow: 2px 2px 2px #252223;
+}
+
+/*  
+ * Essa div tem apenas um fundo preto transparente
+ * Ela tem como objetivo dar mais destaque a frase de impacto  
+ */
+
+#inicio div {
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.2); /* (red, green, blue, alpha) */
+}
+
+#inicio div h1 {
+    padding-top: 200px;   
+}
+
+#sobre div {
+    display: flex;
+}
+
+.light-box {
+    /* margem: vertical horizontal */
+    margin: 40px 20px;
+    background-color: #D5D3D4;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px #252223;
+}
+
+#sobre div article p {
+    text-align: justify;
+}
+
+#sobre div img {
+    display: none;
+}
+
+#contato form div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+#contato form div textarea {
+    width: 100%;
+    min-height: 100px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea {
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #252223;
+    padding: 5px;
+    width: 100%;
+}
+
+#contato form div input[type=submit] {
+    background-color: #252223;
+    color: #D5D3D4;
+    border-radius: 20px;
+    border: 0;
+    padding: 10px 30px; 
+    text-transform: uppercase;
+    font-weight: bold;
+    width: fit-content;
+}
+
+/* 
+ * "Meus trabalhos" realizado com display grid seguindo instruções do site: 
+ * https://www.w3schools.com/css/css_grid.asp
+ */
+
+#meus_trabalhos {
+    background-color: #252223;
+    color: #D5D3D4;
+    text-align: center;
+    padding: 10px;
+    text-shadow: 2px 2px 5px #000;
+}
+
+.grid-container {
+    display:grid;
+    /* cada 'auto' se refere a uma coluna, que neset caso ocupa o tamanho máximo disponível */
+    grid-template-columns: auto auto;
+    padding: 10px;
+    gap: 10px;
+}
+
+.grid-items img {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #000;
+}
+
+footer {
+    background-color: #252223;
+    text-align: center;
+    color: #D5D3D4;
+    padding: 10px;
+}
+
+footer p {
+    margin: 0px;
+}
+
+/*
+ * Seguindo a técnica Mobile-first o site foi modelado primeiramente para web 
+ * Agora iniciaremos a formatação para monitores pequenos e tablets
+ */
+
+@media  only screen and (min-width: 680px) {
+    
+    /*
+     * A maior alteração ocorrerá aqui no menu de navegação
+     * Para transformar o menu de hamburger em um menu normal
+     */
+
+    header {
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+
+    #logo {
+        padding-top: 10px;
+    }
+
+    #hamnav label, #hamnav input {
+        display: none;
+    }
+
+    #hamitems {
+        height: 100%;
+        display: flex;
+        position: static;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        box-shadow: none; 
+        text-align: center;  
+        align-items: center; 
+    }
+
+    #hamitems a {
+        display: flex;
+        border: 0px;
+        background: none;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #hamitems a:hover {
+        background-color: #D5D3D4;
+    }
+
+    h1 {
+        font-size: 46px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    /*
+     * Como há mais espaço podemos mostrar a imagem da section "Sobre"
+     */
+
+    #sobre div img {
+        display: block;
+        margin-left: 20px;
+        box-shadow: 2px 2px 10px #252223;
+        border-radius: 5px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    /*
+     * Em telas maiores podemos mostrar agora três imagens em cada linha 
+     * Na section "Meus Trabalhos"
+     */
+
+     .grid-container {
+        grid-template-columns: auto auto auto;
+    }
+
+    /*
+     * A sectio de contato está muito grande com os input esticados
+     * Irei limitar seu tamanho máximo a 600px e margens laterais no auto
+     * para centralizar o conteudo 
+     */
+
+    #contato {
+        max-width: 600px;
+        margin: 40px auto;
+    }
+}
+
+
+@media  only screen and (min-width: 1023px) {
+
+    body div {
+        max-width: 1024px;
+        margin: auto;
+        background-color: #bc834d;
+    }
+    /*
+     * Como em telas muito grandes o site ficava "vazio"
+     * resolvi centralizar o conteudo e dar uma cor para o fundo
+     */
+    body {
+        background-color: #000;
+    }
+
+    #logo {
+        margin: 0px;
+    }
+
+    .grid-container, .grid-items {
+        background-color: #252223;
+    }
+
+    #contato div {
+        background-color: #D5D3D4;
+    }
+}
